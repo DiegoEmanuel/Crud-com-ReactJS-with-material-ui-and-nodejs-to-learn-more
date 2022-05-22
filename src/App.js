@@ -1,8 +1,9 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Card from "./components/card";
 function App() {
+  const [listAdvogados, setListAdvogados]= useState;
   const [values, setValues] = useState();
 
   const handleChangeValues = (value) => {
@@ -19,6 +20,13 @@ function App() {
       area: values.area,
     }).then((response) => console.log(response));
   };
+  useEffect(()=>{
+    Axios.get("http://localhost:3001/getCards").then((response)=>
+    {
+      setListAdvogados(response.data)
+    })
+  },[])
+    
   return (
     <div className="app--container">
       <div className="register--container">
@@ -58,7 +66,9 @@ function App() {
           Cadastrar
         </button>
       </div>
-      <Card></Card>
+      {typeof listAdvogados!== "undefined" && listAdvogados.map(value=>{
+        <Card></Card>
+      })}
     </div>
   );
 }
