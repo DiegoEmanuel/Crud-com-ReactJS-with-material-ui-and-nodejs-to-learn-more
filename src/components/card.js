@@ -9,8 +9,18 @@ export default function Card(props) {
   };
   return (
     <>
-      <FormDialog open={open} setOpen={setOpen} />
-      <div className="card-container" onclick={() => handleClickCard()}>
+      <FormDialog
+        open={open}
+        setOpen={setOpen}
+        name={props.name}
+        oab={props.oab}
+        cost={props.cost}
+        area={props.area}
+        listCard={props.listCar}
+        setListCard={props.setListCar}
+        id={props.id}
+      />
+      <div className="card-container" onClick={() => handleClickCard()}>
         <h1 className="card-title">{props.name}</h1>
         <p className="card-oab">{props.oab}</p>
         <p className="card-coast">{props.cost}</p>

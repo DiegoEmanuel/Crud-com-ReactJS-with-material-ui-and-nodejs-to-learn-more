@@ -18,7 +18,17 @@ function App() {
       oab: values.oab,
       cost: values.cost,
       area: values.area,
-    }).then((response) => console.log(response));
+    }).then(() => {
+      setListAdvogados([
+        ...listAdvogados,
+        {
+          name: values.name,
+          oab: values.oab,
+          cost: values.cost,
+          area: values.area,
+        },
+      ]);
+    });
   };
   useEffect(() => {
     Axios.get("http://localhost:3001/getCards").then((response) => {

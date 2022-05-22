@@ -6,14 +6,15 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Axios from "axios";
-import produce from "immer";
+// import produce from "immer";
 
 export default function FormDialog(props) {
   const [editValues, setEditValues] = useState({
     id: props.id,
     name: props.title,
+    oab: props.oab,
     cost: props.cost,
-    category: props.category,
+    area: props.area,
   });
 
   const handleChangeValues = (values) => {
@@ -23,14 +24,11 @@ export default function FormDialog(props) {
     }));
   };
 
-  const handleClickOpen = () => {
-    props.setOpen(true);
-  };
   const handleClose = () => {
     props.setOpen(false);
   };
 
-  const handleEditGame = () => {
+  const handleEditAdvogado = () => {
     Axios.put("http://localhost:3001/edit", {
       id: editValues.id,
       name: editValues.name,
@@ -45,7 +43,8 @@ export default function FormDialog(props) {
                 id: editValues.id,
                 name: editValues.name,
                 cost: editValues.cost,
-                category: editValues.category,
+                oab: editValues.oab,
+                area: editValues.area,
               }
             : value;
         })
@@ -54,7 +53,7 @@ export default function FormDialog(props) {
     handleClose();
   };
 
-  const handleDeleteGame = () => {
+  const handleDeleteAdvogado = () => {
     Axios.delete(`http://localhost:3001/delete/${editValues.id}`).then(() => {
       props.setListCard(
         props.listCard.filter((value) => {
@@ -87,8 +86,18 @@ export default function FormDialog(props) {
             autoFocus
             margin="dense"
             id="name"
-            label="Nome do jogo"
-            defaultValue={props.title}
+            label="Nome do advogado"
+            defaultValue={props.name}
+            type="text"
+            onChange={handleChangeValues}
+            fullWidth
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="oab"
+            label="Nº OAB"
+            defaultValue={props.oab}
             type="text"
             onChange={handleChangeValues}
             fullWidth
@@ -106,9 +115,9 @@ export default function FormDialog(props) {
           <TextField
             autoFocus
             margin="dense"
-            id="category"
-            label="Categoria"
-            defaultValue={props.category}
+            id="area"
+            label="Area"
+            defaultValue={props.area}
             type="text"
             onChange={handleChangeValues}
             fullWidth
@@ -118,10 +127,10 @@ export default function FormDialog(props) {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button color="primary" onClick={() => handleDeleteGame()}>
+          <Button color="primary" onClick={() => handleDeleteAdvogado()}>
             Excluir
           </Button>
-          <Button color="primary" onClick={() => handleEditGame()}>
+          <Button color="primary" onClick={() => handleEditAdvogado()}>
             Salvar
           </Button>
         </DialogActions>
