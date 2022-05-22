@@ -27,7 +27,12 @@ npm run build
 ```
 npm run lint
 ```
-
+##  "dependencies": {
+    "cors": "^2.8.5",
+    "expess": "^0.0.1-security",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.16", 
+    }
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
