@@ -1,5 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
+import Axios from "axios";
+import Card from "./components/card";
 function App() {
   const [values, setValues] = useState();
 
@@ -10,12 +12,17 @@ function App() {
     }));
   };
   const handleClickButton = () => {
-    console.log(values);
+    Axios.post("http://localhost:3001/register", {
+      name: values.name,
+      oab: values.oab,
+      cost: values.cost,
+      area: values.area,
+    }).then((response) => console.log(response));
   };
   return (
     <div className="app--container">
       <div className="register--container">
-        <h1 className="register--title">Sistema de advogados</h1>
+        <h1 className="register--title">Sistema de Advogados</h1>
         <input
           type="text"
           name="name"
@@ -25,7 +32,7 @@ function App() {
         ></input>
         <input
           type="text"
-          name="OAB"
+          name="oab"
           placeholder="Número da OAB"
           className="register--input"
           onChange={handleChangeValues}
@@ -51,6 +58,7 @@ function App() {
           Cadastrar
         </button>
       </div>
+      <Card></Card>
     </div>
   );
 }

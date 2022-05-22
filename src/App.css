@@ -2,9 +2,8 @@
   display: flex;
   align-items: center;
   flex-direction:column;
-  padding: 15%;
-  /* background-color: aqua; */
-  background-image: linear-gradient(to right, blue , white);
+  padding: 17%;
+  background-image: linear-gradient(to right, #95c8fc , aqua);
 
 }
 
