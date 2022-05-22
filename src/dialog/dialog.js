@@ -23,6 +23,9 @@ export default function FormDialog(props) {
     }));
   };
 
+  const handleClickOpen = () => {
+    props.setOpen(true);
+  };
   const handleClose = () => {
     props.setOpen(false);
   };
@@ -31,8 +34,9 @@ export default function FormDialog(props) {
     Axios.put("http://localhost:3001/edit", {
       id: editValues.id,
       name: editValues.name,
+      oab: editValues.oab,
       cost: editValues.cost,
-      category: editValues.category,
+      area: editValues.area,
     }).then(() => {
       props.setListCard(
         props.listCard.map((value) => {
