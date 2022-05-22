@@ -27,7 +27,19 @@ npm run build
 ```
 npm run lint
 ```
-##  "dependencies": {
+##   "dependencies"(client): {
+    "@material-ui/core": "^4.12.4",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.27.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  
+##  "dependencies (server)": {
     "cors": "^2.8.5",
     "expess": "^0.0.1-security",
     "mysql": "^2.18.1",
