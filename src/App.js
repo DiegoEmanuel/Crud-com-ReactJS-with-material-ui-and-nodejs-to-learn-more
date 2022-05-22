@@ -3,9 +3,9 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Card from "./components/card";
 function App() {
-  const [listAdvogados, setListAdvogados]= useState;
   const [values, setValues] = useState();
-
+  const [listAdvogados, setListAdvogados] = useState();
+  console.log(listAdvogados);
   const handleChangeValues = (value) => {
     setValues((prevValue) => ({
       ...prevValue,
@@ -20,13 +20,12 @@ function App() {
       area: values.area,
     }).then((response) => console.log(response));
   };
-  useEffect(()=>{
-    Axios.get("http://localhost:3001/getCards").then((response)=>
-    {
-      setListAdvogados(response.data)
-    })
-  },[])
-    
+  useEffect(() => {
+    Axios.get("http://localhost:3001/getCards").then((response) => {
+      setListAdvogados(response.data);
+    });
+  }, []);
+
   return (
     <div className="app--container">
       <div className="register--container">
@@ -66,9 +65,21 @@ function App() {
           Cadastrar
         </button>
       </div>
-      {typeof listAdvogados!== "undefined" && listAdvogados.map(value=>{
-        <Card></Card>
-      })}
+      {typeof listAdvogados !== "undefined" &&
+        listAdvogados.map((value) => {
+          return (
+            <Card
+              key={value.id}
+              listCard={listAdvogados}
+              setListAdvogados={setListAdvogados}
+              id={value.id}
+              name={value.name}
+              oab={value.oab}
+              cost={value.cost}
+              area={value.area}
+            ></Card>
+          );
+        })}
     </div>
   );
 }
