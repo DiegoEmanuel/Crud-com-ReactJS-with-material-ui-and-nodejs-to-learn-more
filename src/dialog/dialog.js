@@ -10,7 +10,7 @@ import Axios from "axios";
 export default function FormDialog(props) {
   const [editValues, setEditValues] = useState({
     id: props.id,
-    name: props.title,
+    name: props.name,
     oab: props.oab,
     cost: props.cost,
     area: props.area,

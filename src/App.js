@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Card from "./components/card";
+
 function App() {
   const [values, setValues] = useState();
   const [listAdvogados, setListAdvogados] = useState();
@@ -38,7 +39,13 @@ function App() {
 
   return (
     <div className="app--container">
+      <p>Devolutiva - Diego Emanuel Falcão Chaves</p>
       <div className="register--container">
+        <div>
+          <center>
+            <img src={require("./Imgs/1569248746927.jpeg")} />
+          </center>
+        </div>
         <h1 className="register--title">Sistema de Advogados</h1>
         <input
           type="text"
