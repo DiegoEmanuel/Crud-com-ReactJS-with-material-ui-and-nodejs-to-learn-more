@@ -50,6 +50,7 @@ export default function FormDialog(props) {
       );
     });
     handleClose();
+    document.location.reload(true);
   };
 
   const handleDeleteAdvogado = () => {

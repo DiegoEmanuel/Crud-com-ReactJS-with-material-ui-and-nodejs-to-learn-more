@@ -3,16 +3,21 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Card from "./components/card";
 
+
+
 function App() {
   const [values, setValues] = useState();
   const [listAdvogados, setListAdvogados] = useState();
-  console.log(listAdvogados);
   const handleChangeValues = (value) => {
     setValues((prevValue) => ({
       ...prevValue,
       [value.target.name]: value.target.value,
     }));
   };
+  const handleClickButtonVerTodos = () => {
+    
+  };
+
   const handleClickButton = () => {
     Axios.post("http://localhost:3001/register", {
       name: values.name,
@@ -30,9 +35,10 @@ function App() {
         },
       ]);
     });
+    document.location.reload(true);
   };
   useEffect(() => {
-    Axios.get("http://localhost:3001/getCards").then((response) => {
+    Axios.get("http://localhost:3001/getCards5").then((response) => {
       setListAdvogados(response.data);
     });
   }, []);

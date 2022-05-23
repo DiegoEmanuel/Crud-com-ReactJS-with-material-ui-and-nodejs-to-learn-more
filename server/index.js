@@ -54,13 +54,21 @@ app.delete("/delete/:id", (req, res) => {
   });
 });
 
-app.get("/getCards", (req, res) => {
-  let SQL = "SELECT * from register_advogados";
+app.get("/getCards5", (req, res) => {
+  let SQL = "SELECT * from register_advogados order by id desc limit 5";
   db.query(SQL, (err, result) => {
     if (err) console.log(err);
     else res.send(result);
   });
 });
+
+app.get ("/getCards", (req,res) =>{
+    let SQL = "SELECT * from register_advogados";
+    db.query(SQL, (err, result) => {
+      if (err) console.log(err);
+      else res.send(result);
+    });
+})
 
 app.listen(3001, () => {
   console.log("rodando servidor");
