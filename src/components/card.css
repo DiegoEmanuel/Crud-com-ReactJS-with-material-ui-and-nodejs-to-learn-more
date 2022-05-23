@@ -25,7 +25,7 @@
   .card-title {
     display: inline;
     font-family: monospace;
-    color: whitesmoke;
+    color: rgb(255, 255, 255);
   }
   
   .card-oab {
@@ -33,5 +33,5 @@
   }
   
   .card-container:hover {
-    background-color: rgb(193, 26, 26);
+    background-color: rgb(231, 91, 91);
   }

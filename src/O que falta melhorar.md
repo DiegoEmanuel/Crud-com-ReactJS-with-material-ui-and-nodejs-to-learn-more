@@ -9,9 +9,5 @@ From: Diego Emanuel Falcão Chaves
 ```
 
 ```
-Layout Mostrar apenas ultimos 5 cadastros
-```
-
-```
 Fazer com que ações aconteçam em tempo real.
 ```

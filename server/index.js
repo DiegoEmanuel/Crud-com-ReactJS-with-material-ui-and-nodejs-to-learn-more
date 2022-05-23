@@ -61,6 +61,7 @@ app.get("/getCards", (req, res) => {
     else res.send(result);
   });
 });
+
 app.listen(3001, () => {
   console.log("rodando servidor");
 });

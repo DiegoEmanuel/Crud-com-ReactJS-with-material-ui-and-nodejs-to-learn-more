@@ -64,7 +64,7 @@ function App() {
         <input
           type="text"
           name="cost"
-          placeholder="Ex.: R$ 600,00"
+          placeholder="Ex.: Valor do advogado R$ 600,00"
           className="register--input"
           onChange={handleChangeValues}
         ></input>

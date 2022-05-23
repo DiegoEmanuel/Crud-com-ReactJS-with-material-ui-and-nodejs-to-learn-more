@@ -21,11 +21,12 @@ export default function Card(props) {
         id={props.id}
       />
       <div className="card-container" onClick={() => handleClickCard()}>
-        <h1 className="card-title">{props.name}</h1>
-        <p className="card-oab">{props.oab}</p>
-        <p className="card-coast">{props.cost}</p>
-        <p className="card-area">{props.area}</p>
-        <p></p>
+        <center>
+          <h1 className="card-title">{props.name}</h1>
+          <p className="card-oab">OAB Nº{props.oab}</p>
+          <p className="card-coast">Valor - R${props.cost},00</p>
+          <p className="card-area">Area de atuação - {props.area}</p>
+        </center>
       </div>
     </>
   );
