@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require("express"); //contribui na criação d rotas, gerencia requisicoes http
 const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
@@ -10,6 +10,7 @@ const db = mysql.createPool({
   database: "bd_jurify",
 });
 app.use(cors());
+
 app.use(express.json());
 
 app.put("/edit", (req, res) => {
@@ -52,6 +53,7 @@ app.delete("/delete/:id", (req, res) => {
     else res.send(result);
   });
 });
+
 app.get("/getCards", (req, res) => {
   let SQL = "SELECT * from register_advogados";
   db.query(SQL, (err, result) => {
