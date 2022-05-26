@@ -1,4 +1,3 @@
-<img src=https://conexaoconsultoria.net.br/pluginfile.php/12019/coursecat/description/JURIFY-LOGO.jpg></img>
 From: Diego Emanuel Falcão Chaves
 
 # projeto_final
